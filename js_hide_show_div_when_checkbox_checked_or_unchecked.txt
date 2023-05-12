@@ -1,0 +1,27 @@
+  function setupForm() {
+    // get references to checkbox and subscriber_type div
+    var checkbox = document.getElementById('customSwitch111');
+    var subscriberTypeDiv = document.getElementById('subscriber_type');
+    var selectField = document.getElementById('select_field');  
+    // if checkbox is checked, hide subscriber_type div
+    if (checkbox.checked) {
+      subscriberTypeDiv.style.display = 'block';
+      selectField.required = true; // make select field required
+    } else {
+      // if checkbox is unchecked, show subscriber_type div
+      subscriberTypeDiv.style.display = 'none';
+      selectField.required = false; // make select field not required
+      selectField.value = '';
+    }
+  }  
+  // call setupForm on page load and on checkbox change
+  window.addEventListener('load', setupForm);
+  document.getElementById('customSwitch111').addEventListener('change', setupForm);
+
+//<input type="checkbox" class="form-check-input" id="customSwitch111">
+//<div class="col-md-6 col-12" id="subscriber_type"></div>
+//<select class="form-select" name="subscriber_type" id="select_field" >
+//  <option hidden selected value="">--select an options--</option>
+//  <option value="comprehensive">Comprehensive</option>
+//  <option value="lite">Lite</option>
+//</select>
